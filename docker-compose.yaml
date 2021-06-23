@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+
+  rabbitmq1:
+    image: rabbitmq:3-management
+    hostname: rabbitmq1
+    volumes:
+      - ./mnesia1:/var/lib/rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=admin
+    ports:
+      - 5672:5672
+      - 15672:15672
+
+  rabbitmq2:
+    image: rabbitmq:3-management
+    hostname: rabbitmq2
+    volumes:
+      - ./mnesia2:/var/lib/rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=admin
+    ports:
+      - 6672:5672
+      - 16672:15672
+
+  rabbitmq3:
+    image: rabbitmq:3-management
+    hostname: rabbitmq3
+    volumes:
+      - ./mnesia3:/var/lib/rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=admin
+    ports:
+      - 7672:5672
+      - 17672:15672
